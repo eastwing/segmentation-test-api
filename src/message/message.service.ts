@@ -8,7 +8,8 @@ export class MessageService {
 
   async testMessage(message: MessageDto) {
     return new Promise(async (resolve, reject) => {
-      this.client.send(message.pattern, message.payload).subscribe((data) => {
+      const payload = message.payload || {};
+      this.client.send(message.pattern, payload).subscribe((data) => {
         return resolve(data);
       }, reject);
     });
