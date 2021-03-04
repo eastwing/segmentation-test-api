@@ -10,7 +10,7 @@ export class MessageService {
     return new Promise(async (resolve, reject) => {
       this.client.send(message.pattern, message.payload).subscribe((data) => {
         return resolve(data);
-      });
+      }, reject);
     });
   }
 }
