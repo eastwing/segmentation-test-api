@@ -1,10 +1,6 @@
-import { IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsOptional } from 'class-validator';
 
 export class MessageDto {
-    @IsNotEmpty()
-    @IsString()
-    pattern: string;
-
-    @IsOptional()
-    payload: any;
+  @IsOptional()
+  payload: any;
 }
