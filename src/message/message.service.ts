@@ -6,11 +6,9 @@ import { MessageDto } from './messate.dto';
 export class MessageService {
   constructor(@Inject('SEGMENTATION_SERVICE') private client: ClientProxy) {}
 
-  async testMessage(message: MessageDto) {
+  async testMessage(pattern: string, message: MessageDto) {
     return new Promise(async (resolve, reject) => {
-      this.client
-        .send(message.pattern, message.payload)
-        .subscribe(resolve, reject);
+      this.client.send(pattern, message.payload).subscribe(resolve, reject);
     });
   }
 }
