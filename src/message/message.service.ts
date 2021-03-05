@@ -8,7 +8,9 @@ export class MessageService {
 
   async testMessage(pattern: string, message: MessageDto) {
     return new Promise(async (resolve, reject) => {
-      this.client.send(pattern, message.payload || {}).subscribe(resolve, reject);
+      this.client
+        .send(pattern, message.payload || {})
+        .subscribe(resolve, reject);
     });
   }
 }
